@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Motti Peretz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply base font and color */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #374151;
+            /* Gray-700 */
+            background-color: #f9fafb;
+            /* Gray-50 */
+            /* Reduced body padding */
+            padding: 1rem;
+            /* p-4 */
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 2rem;
+                /* md:p-8 */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                padding: 3rem;
+                /* lg:p-12 */
+            }
+        }
+
+        /* Styling for headings */
+        h1 {
+            font-size: 2rem;
+            line-height: 2.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #1f2937;
+        }
+
+        /* Slightly smaller H1 */
+        h2 {
+            font-size: 0.75rem;
+            line-height: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        /* Reduced bottom margin */
+        h3 {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        /* text-base equivalent */
+        h4 {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        /* text-sm equivalent */
+
+        /* Link styling */
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .break-url {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        /* Vertical separator line */
+        .separator {
+            border-left: 1px solid #e5e7eb;
+        }
+
+        /* Horizontal rule */
+        hr.section-divider {
+            border-top: 1px solid #e5e7eb;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Reduced margins */
+        hr.subsection-divider {
+            border-top: 1px dashed #e5e7eb;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Dashed for subsections */
+
+        /* Specific styling for list items */
+        ul li {
+            margin-bottom: 0.125rem;
+        }
+
+        /* Slightly tighter spacing */
+        ul.compact-list li {
+            margin-bottom: 0;
+        }
+
+        /* Even tighter for publications */
+
+        /* Grid layout for the main content - Narrower left column */
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            /* Changed ratio to 1:5 */
+            gap: 1.5rem;
+            /* Reduced gap */
+        }
+
+        .section-title {
+            padding-top: 0.125rem;
+        }
+
+        .section-content {
+            padding-bottom: 1rem;
+        }
+
+        /* Reduced bottom padding */
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .cv-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .separator {
+                border-left: none;
+                padding-left: 0 !important;
+            }
+
+            /* Remove padding */
+            .section-title {
+                margin-bottom: 0.5rem;
+                padding-top: 1rem;
+            }
+
+            .section-content {
+                padding-bottom: 1rem;
+            }
+
+            hr.section-divider,
+            hr.subsection-divider {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+                /* Remove padding for print */
+                font-size: 10pt;
+                /* Adjust base font size for print */
+                color: #000000;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                /* Remove shadow for print */
+                max-width: 100%;
+                /* Use full width */
+                padding: 1.5cm;
+                /* Set print margins */
+                border: none;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            h1 {
+                font-size: 18pt;
+            }
+
+            h2 {
+                font-size: 9pt;
+                color: #333;
+                margin-bottom: 0.5rem;
+            }
+
+            h3 {
+                font-size: 11pt;
+            }
+
+            h4 {
+                font-size: 10pt;
+            }
+
+            a {
+                color: #000000;
+                text-decoration: none;
+            }
+
+            /* Black links for print */
+            .cv-grid {
+                grid-template-columns: 1fr 5fr;
+                /* Maintain columns for print */
+                gap: 1cm;
+            }
+
+            .separator {
+                border-left: 1px solid #ccc;
+            }
+
+            hr.section-divider,
+            hr.subsection-divider {
+                border-color: #ccc;
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            /* Attempt to avoid breaking elements inside these sections */
+            section,
+            .experience-item,
+            .project-item,
+            .education-item {
+                page-break-inside: avoid;
+            }
+
+            /* Avoid breaking right after a heading */
+            h2,
+            h3,
+            h4 {
+                page-break-after: avoid;
+            }
+
+            /* Avoid breaking inside lists if possible */
+            ul,
+            li {
+                page-break-inside: avoid;
+            }
+
+            /* Hide print button if added */
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-8 lg:p-12 bg-gray-50">
+
+    <div class="cv-container max-w-5xl mx-auto bg-white p-5 md:p-8 rounded-lg">
+        <header class="text-center mb-8">
+            <h1>Motti Peretz</h1>
+            <div class="text-xs text-gray-500 mt-2 break-url">
+                <span>Hadid, Israel</span> &bull;
+                <span>0505-785-124</span> &bull;
+                <a href="mailto:motilin22@gmail.com">motilin22@gmail.com</a> &bull;
+                <a href="https://github.com/motilinbal" target="_blank">github.com/motilinbal</a>
+            </div>
+        </header>
+
+        <div class="cv-grid">
+
+            <aside class="section-title">
+                <h2>SUMMARY</h2>
+            </aside>
+            <main class="separator md:pl-6 section-content">
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    MD-PhD graduate with a 6-year background in data-intensive medical sciences research, including
+                    significant bioinformatics work. Currently enhancing this strong analytical foundation as a Math
+                    student. Proficient in core programming languages including Python, C, and Node.js, with proven
+                    adaptability to rapidly learn and utilize other languages and new technologies. Seeking part-time
+                    freelance data science opportunities to apply rigorous research skills and expanding quantitative
+                    expertise to diverse data challenges, including areas like statistical and mathematical modeling.
+                </p>
+            </main>
+
+            <aside class="section-title">
+                <h2>SKILLS</h2>
+            </aside>
+            <main class="separator md:pl-6 section-content text-xs">
+                <h3 class="text-sm mb-2">Technical Skills</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-gray-700 mb-3">
+                    <div>
+                        <h4 class="font-medium text-gray-600 text-xs">Programming & Scripting:</h4>
+                        <ul class="list-disc list-inside ml-2">
+                            <li>Python (Adv): Pandas, NumPy, SciPy, Matplotlib, Seaborn, BioPython, Scikit-learn.</li>
+                            <li>JavaScript/Node.js (Adv): Incl. D3.js.</li>
+                            <li>C/C++: Incl. Armadillo</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-600 text-xs">Bioinformatics & Genomics:</h4>
+                        <ul class="list-disc list-inside ml-2">
+                            <li>NGS Data Analysis & Pipelines.</li>
+                            <li>Functional Genomics (CRISPR).</li>
+                            <li>Tools: GATK, BWA, Bowtie.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-600 text-xs">Databases:</h4>
+                        <ul class="list-disc list-inside ml-2">
+                            <li>MongoDB (Proficient)</li>
+                            <li>SQL (Familiar)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-600 text-xs">Cloud Computing:</h4>
+                        <ul class="list-disc list-inside ml-2">
+                            <li>GCP (GCS)</li>
+                            <li>Azure (APIs)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-600 text-xs">Version Control:</h4>
+                        <ul class="list-disc list-inside ml-2">
+                            <li>Git & GitHub (Proficient)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-600 text-xs">Operating Systems:</h4>
+                        <ul class="list-disc list-inside ml-2">
+                            <li>Linux (Fluent)</li>
+                            <li>Windows (Proficient)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-600 text-xs">Data Visualization:</h4>
+                        <ul class="list-disc list-inside ml-2">
+                            <li>Matplotlib, D3.js (Pref)</li>
+                            <li>Seaborn</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="text-sm mt-3 mb-1">Soft Skills</h3>
+                <ul class="list-disc list-inside grid grid-cols-1 sm:grid-cols-2 gap-x-4 text-gray-700 mb-3">
+                    <li>Analytical & Complex Problem-Solving</li>
+                    <li>Initiative, Proactive Learning & Adaptability</li>
+                    <li>Scientific Communication (Written/Verbal)</li>
+                    <li>Collaboration & Teamwork</li>
+                    <li>Attention to Detail & Rigor</li>
+                </ul>
+
+                <h3 class="text-sm mt-3 mb-1">Languages</h3>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li>Hebrew (Native)</li>
+                    <li>English (Fluent)</li>
+                </ul>
+            </main>
+
+            <aside class="section-title">
+                <h2>WORK EXPERIENCE</h2>
+            </aside>
+            <main class="separator md:pl-6 section-content">
+                <div class="experience-item mb-4">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3>Physician Assistant</h3>
+                        <span class="text-xs text-gray-500 mt-1 sm:mt-0">Sep 2020 – May 2023</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic mb-1">Sheba Hospital, OBGYN Dept., Tel HaShomer, Israel</p>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-0.5 pl-4">
+                        <li>Managed resident-level clinical duties in high-volume OBGYN dept., adapting to peak
+                            hours/load.</li>
+                        <li>Proficiently performed post-delivery tear suturing.</li>
+                        <li>Assisted substantially in C-sections, serving as second surgeon.</li>
+                        <li>Developed advanced C-section proficiency via extensive voluntary OR hours.</li>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="subsection-divider my-3">
+                <div class="experience-item mb-4">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3>Medical Intern</h3>
+                        <span class="text-xs text-gray-500 mt-1 sm:mt-0">Nov 2021 – Nov 2022</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic mb-1">Sheba Hospital, Tel HaShomer, Israel</p>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-0.5 pl-4">
+                        <li>Completed rotations: Internal Med, Peds, Surgery, Anesthesia, ICU, ER.</li>
+                        <li>Provided essential clinical support (admissions, follow-ups, phlebotomy).</li>
+                        <li>Prepared and delivered weekly academic case presentations.</li>
+                    </ul>
+                </div>
+                <hr class="subsection-divider my-3">
+
+                <div class="experience-item mb-4">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3>Doctoral Candidate</h3>
+                        <span class="text-xs text-gray-500 mt-1 sm:mt-0">Aug 2015 – Jul 2021</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic mb-1">Benvenisty Lab, Dept. of Genetics, Inst. of Life
+                        Sciences, Hebrew University, Jerusalem</p>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-0.5 pl-4">
+                        <li>PhD Research: Genetic screens for essential genes & chemo resistance in hESCs.</li>
+                        <li>Equal first author (<em>Nature Cell Bio</em> '18): Led computation, visualization, writing
+                            for CRISPR screen defining essential genes.</li>
+                        <li>Contributed (<em>Cell Stem Cell</em> '16) to defining haploid hPSC properties.</li>
+                        <li>Performed foundational work for subsequent drug resistance screen (<em>Cell Prolif</em>
+                            '23).</li>
+                        <li>Designed & optimized NGS data analysis pipelines for custom libraries.</li>
+                        <li>Utilized Python for bioinformatics, stats, visualization; C++ CLI tools (GATK).</li>
+                        <li>Applied statistical methods to high-throughput screen data.</li>
+                    </ul>
+                </div>
+                <hr class="subsection-divider my-3">
+
+                <div class="experience-item mb-0">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3>Physician Assistant</h3>
+                        <span class="text-xs text-gray-500 mt-1 sm:mt-0">Jul 2020 – Oct 2021</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic mb-1">Mount Scopus Hospital, OBGYN Dept., Jerusalem, Israel
+                    </p>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-0.5 pl-4">
+                        <li>Provided clinical support across OBGYN sub-departments.</li>
+                        <li>Demonstrated adaptability & proactive workload management.</li>
+                        <li>Developed broad sub-specialty knowledge base.</li>
+                    </ul>
+                </div>
+            </main>
+
+            <aside class="section-title">
+                <h2>PROJECTS</h2>
+            </aside>
+            <main class="separator md:pl-6 section-content">
+                <p class="text-xs text-gray-500 italic mb-3"><em>Selection demonstrating rapid development of practical
+                        tools (Python, JS, web tech).</em></p>
+                <div class="space-y-3">
+                    <div class="project-item">
+                        <h3 class="text-sm">3D Mathematical Visualization Engine</h3>
+                        <p class="text-xs text-gray-700 my-0.5">Python/VTK tool to render/explore complex 3D math
+                            surfaces & equations.</p>
+                        <p class="text-xs text-gray-500">
+                            <span class="font-medium">Skills:</span> Python, VTK, 3D Graphics, Math Viz | <a
+                                href="https://github.com/motilin/VTK" target="_blank">Link</a>
+                        </p>
+                    </div>
+                    <div class="project-item">
+                        <h3 class="text-sm">Genomic Data Commons (GDC) API Client</h3>
+                        <p class="text-xs text-gray-700 my-0.5">Python scripts to interact with NCI's GDC API for cancer
+                            genomics data retrieval.</p>
+                        <p class="text-xs text-gray-500"><span class="font-medium">Skills:</span> Python, API
+                            Interaction, JSON, Bioinfo Data Retrieval.</p>
+                        <p class="text-xs text-gray-500">
+                            <span class="font-medium">Skills:</span> JavaScript, HTML/CSS, Stats Algorithms, UI Dev | <a
+                                href="https://github.com/motilin/GDC" target="_blank">Link</a>
+                        </p>
+                    </div>
+                    <div class="project-item">
+                        <h3 class="text-sm">Automated Lecture Downloader & Transcriber</h3>
+                        <p class="text-xs text-gray-700 my-0.5">Python app to download Panopto lectures & transcribe via
+                            Azure STT API.</p>
+                        <p class="text-xs text-gray-500">
+                            <span class="font-medium">Skills:</span> Python, Web Automation, Azure STT API | <a
+                                href="https://github.com/motilinbal/panopto" target="_blank">Link</a>
+                        </p>
+                    </div>
+                    <div class="project-item">
+                        <h3 class="text-sm">Interactive Student Grade Normalization Tool</h3>
+                        <p class="text-xs text-gray-700 my-0.5">Web tool (HTML/CSS/JS) for educators to apply
+                            statistical normalization to grades.</p>
+                        <p class="text-xs text-gray-500">
+                            <span class="font-medium">Skills:</span> JavaScript, HTML/CSS, Stats Algorithms, UI Dev | <a
+                                href="https://github.com/motilinbal/grades" target="_blank">Link</a>
+                        </p>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="section-title">
+                <h2>EDUCATION</h2>
+            </aside>
+            <main class="separator md:pl-6 section-content">
+                <div class="education-item mb-3">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-0.5">
+                        <h3>Mathematical Studies for MSc in Statistics Program</h3>
+                        <span class="text-xs text-gray-500 mt-1 sm:mt-0">Exp. Aug 2026</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Hebrew University of Jerusalem, Jerusalem, Israel</p>
+                </div>
+                <hr class="subsection-divider my-3">
+                <div class="education-item mb-3">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-0.5">
+                        <h3>Doctor of Medicine (MD)</h3>
+                        <span class="text-xs text-gray-500 mt-1 sm:mt-0">Aug 2021</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Hebrew University of Jerusalem, Jerusalem, Israel</p>
+                </div>
+                <hr class="subsection-divider my-3">
+                <div class="education-item mb-3">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-0.5">
+                        <h3>Doctor of Philosophy (PhD) in Medical Sciences (Human Genetics)</h3>
+                        <span class="text-xs text-gray-500 mt-1 sm:mt-0">Jul 2021</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Hebrew University of Jerusalem, Jerusalem, Israel</p>
+                    <p class="text-xs text-gray-500 mt-0.5"><em>Thesis: Genetic screens for essential genes & chemo
+                            resistance in hESCs.</em></p>
+                    <p class="text-xs text-gray-500 mt-0.5">Award: SMART Prize for co-first authored paper in <em>Nature
+                            Cell Biology</em> (2018).</p>
+                </div>
+                <hr class="subsection-divider my-3">
+                <div class="education-item mb-0">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-0.5">
+                        <h3>Bachelor's in Psychology and English Literature</h3>
+                        <span class="text-xs text-gray-500 mt-1 sm:mt-0">Aug 2009</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Tel-Aviv University, Tel Aviv, Israel</p>
+                </div>
+            </main>
+
+            <aside class="section-title">
+                <h2>LICENSES & PUBLICATIONS</h2>
+            </aside>
+            <main class="separator md:pl-6 section-content text-xs">
+                <h3 class="text-sm mb-1">Licenses</h3>
+                <p class="text-gray-700 mb-3">Medical License (General Medicine), Israel Ministry of Health, No.
+                    1-175956, Issued Dec 2022 (Permanent, Active).</p>
+
+                <h3 class="text-sm mb-1">Selected Publications</h3>
+                <ul class="list-none space-y-1 text-gray-700 compact-list">
+                    <li>Yilmaz A<sup>*</sup>, <strong>Peretz M</strong><sup>*</sup>, Aharony A, Sagi I, Benvenisty N.
+                        Defining essential genes... <em>Nature Cell Biology</em>. 2018;20(5):610-19. <em
+                            class="text-gray-500">(<sup>*</sup>Equal contribution)</em></li>
+                    <li>Segal E, Nissenbaum J, <strong>Peretz M</strong>, et al. Genome-wide screen for anticancer drug
+                        resistance... <em>Cell Proliferation</em>. 2023;56(4):e13418.</li>
+                    <li>Sagi I, Golan-Lev T, <strong>Peretz M</strong>, et al. Derivation and differentiation of haploid
+                        human embryonic stem cells. <em>Nature</em>. 2016;532(7597):107-11.</li>
+                    <li>Sagi I, <strong>Peretz M</strong>, Benvenisty N. Properties of human haploid pluripotent stem
+                        cells. <em>Cell Stem Cell</em>. 2016;19(5):571-72.</li>
+                </ul>
+            </main>
+
+        </div>
+    </div>
+</body>
+
+</html>
