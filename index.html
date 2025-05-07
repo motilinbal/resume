@@ -10,16 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Apply base font and color */
+        /* Apply base font and color for screen */
         body {
             font-family: 'Inter', sans-serif;
             color: #374151;
             /* Gray-700 */
             background-color: #f9fafb;
-            /* Gray-50 */
-            /* Reduced body padding */
+            /* Gray-50 for screen */
             padding: 1rem;
-            /* p-4 */
+            /* Default padding for screen */
         }
 
         @media (min-width: 768px) {
@@ -36,54 +35,49 @@
             }
         }
 
-        /* Styling for headings */
-        h1 {
-            font-size: 2rem;
-            line-height: 2.25rem;
+        /* Styling for headings for screen */
+        h1 { /* Name Header */
+            font-size: 2rem; 
+            line-height: 2.25rem; 
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.05em; 
             color: #1f2937;
         }
 
-        /* Slightly smaller H1 */
-        h2 {
-            font-size: 0.75rem;
+        h2 { /* Section titles like SUMMARY, SKILLS */
+            font-size: 0.75rem; /* text-xs */
             line-height: 1rem;
-            font-weight: 600;
+            font-weight: 600; /* semibold */
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #4b5563;
-            margin-bottom: 1rem;
+            letter-spacing: 0.1em; /* tracking-wider */
+            color: #4b5563; /* text-gray-600 */
+            margin-bottom: 1rem; /* mb-4 */
         }
 
-        /* Reduced bottom margin */
-        h3 {
-            font-size: 1rem;
+        h3 { /* Job titles, Project names, Education degrees */
+            font-size: 1rem; /* text-base */
             line-height: 1.5rem;
-            font-weight: 600;
-            color: #1f2937;
+            font-weight: 600; /* semibold */
+            color: #1f2937; /* text-gray-800 */
         }
-
-        /* text-base equivalent */
-        h4 {
-            font-size: 0.875rem;
+        
+        h4 { /* Sub-headings within skills, etc. */
+            font-size: 0.875rem; /* text-sm */
             line-height: 1.25rem;
-            font-weight: 500;
-            color: #374151;
+            font-weight: 500; /* medium */
+            color: #374151; /* text-gray-700 */
         }
 
-        /* text-sm equivalent */
-
-        /* Link styling */
+        /* Link styling for screen */
         a {
-            color: #3b82f6;
+            color: #3b82f6; /* blue-500 */
             text-decoration: none;
             transition: color 0.2s ease-in-out;
         }
 
         a:hover {
-            color: #1d4ed8;
+            color: #1d4ed8; /* blue-700 */
             text-decoration: underline;
         }
 
@@ -93,59 +87,47 @@
             word-break: break-all;
         }
 
-        /* Vertical separator line */
+        /* Vertical separator line for screen */
         .separator {
-            border-left: 1px solid #e5e7eb;
+            border-left: 1px solid #e5e7eb; /* gray-200 */
         }
 
-        /* Horizontal rule */
         hr.section-divider {
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid #e5e7eb; /* gray-200 */
             margin-top: 1rem;
             margin-bottom: 1rem;
         }
 
-        /* Reduced margins */
         hr.subsection-divider {
-            border-top: 1px dashed #e5e7eb;
+            border-top: 1px dashed #e5e7eb; /* gray-200 */
             margin-top: 1rem;
             margin-bottom: 1rem;
         }
-
-        /* Dashed for subsections */
-
-        /* Specific styling for list items */
+        
         ul li {
-            margin-bottom: 0.125rem;
+            margin-bottom: 0.125rem; /* tighter spacing */
         }
 
-        /* Slightly tighter spacing */
         ul.compact-list li {
-            margin-bottom: 0;
+            margin-bottom: 0; /* Even tighter for publications */
         }
 
-        /* Even tighter for publications */
-
-        /* Grid layout for the main content - Narrower left column */
+        /* Grid layout for the main content - Narrower left column for screen */
         .cv-grid {
             display: grid;
             grid-template-columns: 1fr 5fr;
-            /* Changed ratio to 1:5 */
             gap: 1.5rem;
-            /* Reduced gap */
         }
 
-        .section-title {
-            padding-top: 0.125rem;
+        .section-title { /* This is the <aside> holding the H2 */
+            padding-top: 0.125rem; /* Align H2 better with content */
         }
 
-        .section-content {
-            padding-bottom: 1rem;
+        .section-content { /* This is the <main> holding the details */
+            padding-bottom: 1rem; /* Space before next section title */
         }
 
-        /* Reduced bottom padding */
-
-        /* Responsive adjustments */
+        /* Responsive adjustments for screen */
         @media (max-width: 768px) {
             .cv-grid {
                 grid-template-columns: 1fr;
@@ -154,19 +136,15 @@
 
             .separator {
                 border-left: none;
-                padding-left: 0 !important;
+                padding-left: 0 !important; /* Tailwind md:pl-6 reset */
             }
-
-            /* Remove padding */
-            .section-title {
-                margin-bottom: 0.5rem;
-                padding-top: 1rem;
+            .section-title { /* <aside> */
+                margin-bottom: 0.5rem; 
+                padding-top: 1rem; /* Add space above H2 on mobile */
             }
-
-            .section-content {
+            .section-content { /* <main> */
                 padding-bottom: 1rem;
             }
-
             hr.section-divider,
             hr.subsection-divider {
                 margin-top: 1rem;
@@ -176,104 +154,175 @@
 
         /* Print-specific styles */
         @media print {
+            /* Apply page margins for printing */
+            @page {
+                margin: 0.75in; 
+            }
+
             body {
-                background-color: #ffffff;
-                padding: 0;
-                /* Remove padding for print */
-                font-size: 10pt;
-                /* Adjust base font size for print */
-                color: #000000;
+                background-color: #ffffff !important; 
+                padding: 0 !important; 
+                font-size: 10pt; 
+                color: #000000 !important; 
+                -webkit-print-color-adjust: exact; 
+                print-color-adjust: exact; 
             }
 
             .cv-container {
-                box-shadow: none;
-                /* Remove shadow for print */
-                max-width: 100%;
-                /* Use full width */
-                padding: 1.5cm;
-                /* Set print margins */
-                border: none;
-                margin: 0;
-                border-radius: 0;
+                box-shadow: none !important; 
+                max-width: 100% !important; 
+                padding: 0 !important; 
+                border: none !important; 
+                margin: 0 !important; 
+                border-radius: 0 !important; 
+                background-color: #ffffff !important; 
+            }
+            
+            .no-print {
+                display: none !important;
             }
 
-            h1 {
-                font-size: 18pt;
+            header.text-center { 
+                text-align: center !important;
+                margin-bottom: 0.25in !important; 
+                page-break-after: avoid !important; 
             }
 
-            h2 {
-                font-size: 9pt;
-                color: #333;
-                margin-bottom: 0.5rem;
+            h1 { /* Name Header - Adjusted to match screenshot's visual style */
+                font-size: 14pt !important;    /* MODIFIED: Significantly reduced from 17pt */
+                line-height: 1.2 !important;    /* MODIFIED: Standard line height for better readability */
+                letter-spacing: 0.05em !important;/* MODIFIED: Matches screen's relative value for desired airy look */
+                text-transform: uppercase !important; 
+                font-weight: 700 !important; 
+                color: #000000 !important;
+                page-break-after: avoid !important; 
+                margin-top: 0 !important; /* Ensure no extra top margin */
+                margin-bottom: 0.05in !important; /* MODIFIED: Tighter margin below H1 */
+            }
+            
+            /* Styling for the contact info div under H1 - Adjusted for balance */
+            header.text-center > div.break-url { 
+                font-size: 7pt !important;      /* MODIFIED: Reduced for better proportion to the new H1 size */
+                line-height: 1.25 !important;   /* MODIFIED: Adjusted for readability */
+                margin-top: 0 !important;       /* MODIFIED: Reduced to bring closer to H1, as in screenshot */
+                color: #000000 !important;
             }
 
-            h3 {
-                font-size: 11pt;
+            h2 { /* Section titles (SUMMARY, SKILLS, etc.) */
+                font-size: 10pt !important; 
+                color: #000000 !important;
+                margin-bottom: 0.25rem !important; 
+                font-weight: 700 !important; 
+                page-break-before: avoid !important; 
+                page-break-after: avoid !important; 
             }
 
-            h4 {
-                font-size: 10pt;
+            h3 { /* Job titles, Project names, Education degrees */
+                font-size: 11pt !important;
+                color: #000000 !important;
+                margin-bottom: 0.1rem !important;
+                page-break-after: avoid !important; 
+            }
+            
+            h4 { /* Sub-headings in skills, etc. */
+                font-size: 9pt !important;
+                color: #000000 !important;
+                margin-bottom: 0.05rem !important;
+                page-break-after: avoid !important; 
+            }
+            
+            p, li, span, div {
+                color: #000000 !important; 
+            }
+            .text-gray-500, .text-gray-600, .text-gray-700, .text-xs, .text-sm {
+                 color: #000000 !important;
+            }
+            /* Overriding text-xs and text-sm for print, except for the contact info which is specifically styled */
+            body .text-xs:not(header.text-center > div.break-url *) { font-size: 8pt !important; } 
+            body .text-sm { font-size: 9pt !important; }
+
+
+            a, a:visited {
+                color: #000000 !important; 
+                text-decoration: none !important; 
             }
 
-            a {
-                color: #000000;
-                text-decoration: none;
-            }
-
-            /* Black links for print */
             .cv-grid {
-                grid-template-columns: 1fr 5fr;
-                /* Maintain columns for print */
-                gap: 1cm;
+                display: grid !important; 
+                grid-template-columns: 1fr 5fr !important; 
+                gap: 0.25in !important; 
+                padding: 0 !important;
+                page-break-before: auto !important; 
             }
 
             .separator {
-                border-left: 1px solid #ccc;
+                border-left: 1px solid #aaaaaa !important; 
+                padding-left: 0.25in !important; 
+            }
+            
+            .section-title { 
+                padding-top: 0 !important; 
+                margin-bottom: 0 !important; 
+                page-break-after: avoid !important; 
+            }
+            .section-content { 
+                padding-bottom: 0.2in !important; 
+                page-break-before: avoid !important; 
             }
 
             hr.section-divider,
             hr.subsection-divider {
-                border-color: #ccc;
-                margin-top: 0.5rem;
-                margin-bottom: 0.5rem;
+                border-color: #bbbbbb !important; 
+                margin-top: 0.15in !important;
+                margin-bottom: 0.15in !important;
             }
 
-            /* Attempt to avoid breaking elements inside these sections */
-            section,
+            ul {
+                padding-left: 1.5em !important; 
+                list-style-position: outside !important; 
+            }
+            ul li {
+                margin-bottom: 0.05in !important; 
+            }
+            ul.list-disc {
+                list-style-type: disc !important;
+            }
+            ul.list-none {
+                list-style-type: none !important;
+                padding-left: 0 !important;
+            }
+
+            .summary-section, 
+            .skills-section,
+            .experience-section,
+            .projects-section,
+            .education-section,
+            .licenses-section {
+                page-break-inside: avoid !important;
+            }
+
             .experience-item,
             .project-item,
             .education-item {
-                page-break-inside: avoid;
+                page-break-inside: avoid !important; 
             }
-
-            /* Avoid breaking right after a heading */
-            h2,
-            h3,
-            h4 {
-                page-break-after: avoid;
+            
+            ul, ol {
+                 page-break-inside: avoid !important; 
             }
-
-            /* Avoid breaking inside lists if possible */
-            ul,
-            li {
-                page-break-inside: avoid;
-            }
-
-            /* Hide print button if added */
-            .print-button {
-                display: none;
+            
+            .italic, i, em {
+                font-style: italic !important;
             }
         }
     </style>
 </head>
 
-<body class="p-4 md:p-8 lg:p-12 bg-gray-50">
-
-    <div class="cv-container max-w-5xl mx-auto bg-white p-5 md:p-8 rounded-lg">
+<body class="bg-gray-50"> 
+    <div class="cv-container max-w-5xl mx-auto bg-white p-5 md:p-8 rounded-lg shadow-lg"> 
         <header class="text-center mb-8">
             <h1>Motti Peretz</h1>
-            <div class="text-xs text-gray-500 mt-2 break-url">
-                <span>Hadid, Israel</span> &bull;
+            <div class="text-xs text-gray-500 mt-2 break-url"> <span>Hadid, Israel</span> &bull;
                 <span>0505-785-124</span> &bull;
                 <a href="mailto:motilin22@gmail.com">motilin22@gmail.com</a> &bull;
                 <a href="https://github.com/motilinbal" target="_blank">github.com/motilinbal</a>
@@ -386,7 +435,7 @@
                         <li>Proficiently performed post-delivery tear suturing.</li>
                         <li>Assisted substantially in C-sections, serving as second surgeon.</li>
                         <li>Developed advanced C-section proficiency via extensive voluntary OR hours.</li>
-                        </li>
+                        
                     </ul>
                 </div>
                 <hr class="subsection-divider my-3">
@@ -425,7 +474,7 @@
                 </div>
                 <hr class="subsection-divider my-3">
 
-                <div class="experience-item mb-0">
+                <div class="experience-item mb-0"> 
                     <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
                         <h3>Physician Assistant</h3>
                         <span class="text-xs text-gray-500 mt-1 sm:mt-0">Jul 2020 – Oct 2021</span>
@@ -461,11 +510,8 @@
                         <p class="text-xs text-gray-700 my-0.5">Python scripts to interact with NCI's GDC API for cancer
                             genomics data retrieval.</p>
                         <p class="text-xs text-gray-500"><span class="font-medium">Skills:</span> Python, API
-                            Interaction, JSON, Bioinfo Data Retrieval.</p>
-                        <p class="text-xs text-gray-500">
-                            <span class="font-medium">Skills:</span> JavaScript, HTML/CSS, Stats Algorithms, UI Dev | <a
-                                href="https://github.com/motilin/GDC" target="_blank">Link</a>
-                        </p>
+                            Interaction, JSON, Bioinfo Data Retrieval | <a
+                                href="https://github.com/motilin/GDC" target="_blank">Link</a></p>
                     </div>
                     <div class="project-item">
                         <h3 class="text-sm">Automated Lecture Downloader & Transcriber</h3>
@@ -520,7 +566,7 @@
                             Cell Biology</em> (2018).</p>
                 </div>
                 <hr class="subsection-divider my-3">
-                <div class="education-item mb-0">
+                <div class="education-item mb-0"> 
                     <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-0.5">
                         <h3>Bachelor's in Psychology and English Literature</h3>
                         <span class="text-xs text-gray-500 mt-1 sm:mt-0">Aug 2009</span>
@@ -541,7 +587,7 @@
                 <ul class="list-none space-y-1 text-gray-700 compact-list">
                     <li>Yilmaz A<sup>*</sup>, <strong>Peretz M</strong><sup>*</sup>, Aharony A, Sagi I, Benvenisty N.
                         Defining essential genes... <em>Nature Cell Biology</em>. 2018;20(5):610-19. <em
-                            class="text-gray-500">(<sup>*</sup>Equal contribution)</em></li>
+                            class="text-gray-500 italic">(<sup>*</sup>Equal contribution)</em></li>
                     <li>Segal E, Nissenbaum J, <strong>Peretz M</strong>, et al. Genome-wide screen for anticancer drug
                         resistance... <em>Cell Proliferation</em>. 2023;56(4):e13418.</li>
                     <li>Sagi I, Golan-Lev T, <strong>Peretz M</strong>, et al. Derivation and differentiation of haploid
@@ -551,8 +597,8 @@
                 </ul>
             </main>
 
-        </div>
-    </div>
+        </div> 
+    </div> 
 </body>
 
-</html> 
+</html>
